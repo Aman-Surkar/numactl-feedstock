@@ -8,6 +8,8 @@ package:
 source:
   git_url: https://github.com/numactl/numactl.git
   git_rev: v{{ version }}
+  patches:                                                             #[ppc64le]   
+    - 0001-Add-architectures-for-set_mempolicy_home_node-syscal.patch  #[ppc64le]
 
 build:
   # add license_file in about section on refresh.

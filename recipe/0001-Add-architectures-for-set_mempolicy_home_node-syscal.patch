@@ -1,0 +1,25 @@
+From 90dbb94ac1a250bf809c31c0e8f21ddb955ee004 Mon Sep 17 00:00:00 2001
+From: Aman Surkar <Aman.Surkar@ibm.com>
+Date: Fri, 17 May 2024 17:05:58 +0000
+Subject: [PATCH] Add architectures for set_mempolicy_home_node syscall
+
+---
+ syscall.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/syscall.c b/syscall.c
+index 63b3e53..a8fe81c 100644
+--- a/syscall.c
++++ b/syscall.c
+@@ -141,7 +141,7 @@
+ 
+ #if !defined(__NR_set_mempolicy_home_node)
+ 
+-#if defined(__x86_64__) || defined(__aarch64__)
++#if defined(__x86_64__) || defined(__aarch64__) || defined(__i386__) || defined(__powerpc__) || defined(__mips__) || defined(__s390x__)
+ #define __NR_set_mempolicy_home_node 450
+ #else
+ #error "Add syscalls for your architecture or update kernel headers"
+-- 
+2.40.1
+
